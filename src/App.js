@@ -3,7 +3,7 @@ import "./App.css";
 import { QRCodeSVG } from "qrcode.react";
 
 function App() {
-  const modelUrl = "http://172.20.10.9:3000";
+  const modelUrl = "https://kritiarorabiz4.github.io/AR-2/";
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   return (
     <div className="App">
