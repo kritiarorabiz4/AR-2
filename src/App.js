@@ -3,7 +3,7 @@ import "./App.css";
 import { QRCodeSVG } from "qrcode.react";
 
 function App() {
-  const modelUrl = "192.168.1.68:3000";
+  const modelUrl = "https://kritiarorabiz4.github.io/AR-2/";
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const src=['https://ar-demo-nine.vercel.app/assets/nike.glb','https://ar-demo-nine.vercel.app/assets/nikeBox.glb',
     'model/lamp.glb','model/chimney.glb','model/chair.glb',
