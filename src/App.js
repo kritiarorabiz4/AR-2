@@ -29,10 +29,10 @@ function Home() {
   return (
     <div className="App">
       <h1>Categories</h1>
-      <ul>
+      <ul className="category-list">
         {categories.map((cat) => (
-          <li key={cat.id}>
-            <Link to={`/category/${cat.id}`}>{cat.name}</Link>
+          <li key={cat.id} className="category-item">
+            <Link to={`/category/${cat.id}`} className="category-link">{cat.name}</Link>
           </li>
         ))}
       </ul>
@@ -45,10 +45,10 @@ function Category() {
   return (
     <div className="App">
       <h1>{categoryId.toUpperCase()}</h1>
-      <ul>
+      <ul className="product-list">
         {products[categoryId]?.map((product, index) => (
-          <li key={index}>
-            <Link to={`/product/${categoryId}/${index}`}>{product.name}</Link>
+          <li key={index} className="product-item">
+            <Link to={`/product/${categoryId}/${index}`} className="product-link">{product.name}</Link>
           </li>
         ))}
       </ul>
@@ -60,16 +60,15 @@ function Product() {
   let { categoryId, productId } = useParams();
   let product = products[categoryId]?.[productId];
   const modelUrl = "https://kritiarorabiz4.github.io/AR-2/";
-  // const modelUrl = "https://192.168.69.90:3000";
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   return (
     <div className="App">
       <h1>{product.name}</h1>
-      <div className='Model'>
-      <model-viewer src={product.model} ar ar-scale="fixed" camera-controls touch-action="pan-y" ></model-viewer>
-      {isMobile?<></>:<QRCodeSVG value={modelUrl} size={50} level="H" style={{alignSelf:'right'}} /> }
+      <div className='Model-container'>
+        <model-viewer className='Model' src={product.model} ar ar-scale="fixed" camera-controls touch-action="pan-y"></model-viewer>
+        {!isMobile && <QRCodeSVG value={modelUrl} size={50} level="H" className="qr-code" />}
       </div>
-      <Link to={`/category/${categoryId}`}>Back to {categoryId.toUpperCase()}</Link>
+      <Link to={`/category/${categoryId}`} className="back-link">Back to {categoryId.toUpperCase()}</Link>
     </div>
   );
 }
