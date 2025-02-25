@@ -75,7 +75,7 @@ function Product() {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/AR-2">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category/:categoryId" element={<Category />} />
